@@ -1,19 +1,18 @@
 // Refactor following solution
 // Return an array without duplicates
 
-DISTINCT = (data) => {
-  A = new Set();
-  w = 0;
-  data.forEach((a) => {
-    if (A.has(a)) {
-      delete data[w];
-    } else {
-      A.add(a);
+const DISTINCT = (data) => {
+  const seen = new Set();
+  const result = [];
+
+  for (const item of data) {
+    if (!seen.has(item)) {
+      seen.add(item);
+      result.push(item);
     }
-    w++;
-  });
-  return data.filter
-  (x => typeof x === 'number');
+  }
+
+  return result;
 };
 
 module.exports = DISTINCT;
